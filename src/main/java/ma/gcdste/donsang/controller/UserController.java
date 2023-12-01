@@ -36,4 +36,5 @@ public class UserController {
     public void delete(@PathVariable String email){
         userService.deleteUser(email);
     }
+
 }

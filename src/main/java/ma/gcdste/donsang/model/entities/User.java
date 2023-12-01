@@ -10,9 +10,7 @@ public class User {
     //@NotNull(message = "L'email est obligatoire !")
     private String email;
     //@NotNull(message = "Veuillez entrer votre nom svp")
-    private String nom;
-    //@NotNull(message = "Veuillez entrer votre prenom svp")
-    private String prenom;
+    private String name;
     //@NotNull(message = "Le mot de passe est obligatoire !")
     private String password;
     //@NotNull(message = "Le groupe sanguin est obligatoire !")
@@ -20,11 +18,18 @@ public class User {
     //@NotNull(message = "Votre age est obligatoire !")
     private Long age;
 
+    //Ces deux variables sont détérminées une fois l'utilisateur renseigne ses informations sur les conditions temporaires après
+    // appel aux dons
 
-    public User(Long id, String email, String nom, String prenom, String password, String type_sang, Long age) {
+    @Transient
+    private Boolean elligible;
+    @Transient
+    private Long indisponibilite;
+
+
+    public User(Long id, String email, String nom, String name, String password, String type_sang, Long age) {
         this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
+        this.name = name;
         this.email = email;
         this.password = password;
         this.groupeSanguin = type_sang;
@@ -42,20 +47,12 @@ public class User {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setName(String prenom) {
+        this.name = prenom;
     }
 
     public String getEmail() {
@@ -88,5 +85,21 @@ public class User {
 
     public void setAge(Long age) {
         this.age = age;
+    }
+
+    public Boolean getElligible() {
+        return elligible;
+    }
+
+    public void setElligible(Boolean elligible) {
+        this.elligible = elligible;
+    }
+
+    public Long getIndisponibilite() {
+        return indisponibilite;
+    }
+
+    public void setIndisponibilite(Long indisponibilite) {
+        this.indisponibilite = indisponibilite;
     }
 }
