@@ -16,18 +16,15 @@ public class User {
     //@NotNull(message = "Le groupe sanguin est obligatoire !")
     private String groupeSanguin;
     //@NotNull(message = "Votre age est obligatoire !")
-    private Long age;
+    private String age;
 
     //Ces deux variables sont détérminées une fois l'utilisateur renseigne ses informations sur les conditions temporaires après
     // appel aux dons
 
-    @Transient
-    private Boolean elligible;
-    @Transient
-    private Long indisponibilite;
+    private String role;
 
 
-    public User(Long id, String email, String nom, String name, String password, String type_sang, Long age) {
+    public User(Long id, String email, String nom, String name, String password, String type_sang, String age) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -79,27 +76,19 @@ public class User {
         this.groupeSanguin = type_sang;
     }
 
-    public Long getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Long age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public Boolean getElligible() {
-        return elligible;
+    public String getRole() {
+        return role;
     }
 
-    public void setElligible(Boolean elligible) {
-        this.elligible = elligible;
-    }
-
-    public Long getIndisponibilite() {
-        return indisponibilite;
-    }
-
-    public void setIndisponibilite(Long indisponibilite) {
-        this.indisponibilite = indisponibilite;
+    public void setRole(String role) {
+        this.role = role;
     }
 }
